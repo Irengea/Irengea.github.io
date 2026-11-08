@@ -1,24 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-<title>Website Irengea</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Belajar Irengea</title>
 <style>
-body { font-family: Arial; background: #ffe6f0; text-align: center; padding: 40px; }
-.kotak { background: white; padding: 30px; border-radius: 20px; max-width: 500px; margin: auto; box-shadow: 0 0 15px pink; }
-h1 { color: #ff4d88; }
-button { background: #ff4d88; color: white; border: none; padding: 10px 20px; border-radius: 10px; font-size: 16px; }
+body{font-family:Arial;background:#fff0f5;margin:0}
+header{background:#ff4d88;color:white;padding:25px;text-align:center}
+.menu{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:15px}
+.menu a{background:white;padding:10px 18px;border-radius:20px;text-decoration:none;color:#ff4d88;font-weight:bold;box-shadow:0 2px 8px #ffc0d0}
+.kotak{background:white;max-width:750px;margin:15px auto;padding:20px;border-radius:15px;box-shadow:0 2px 10px #ffc0d0}
+h2{color:#ff4d88}
+.btn{background:#ff4d88;color:white;padding:10px 15px;border:none;border-radius:10px;cursor:pointer}
+.slide{display:none;text-align:center;padding:20px}
+.slide.aktif{display:block}
+input{padding:8px;width:90%;margin:5px 0;border-radius:8px;border:1px solid #ddd}
 </style>
 </head>
 <body>
-<div class="kotak">
-<h1>Halo, Ini Website Saya! 💖</h1>
-<p>Nama saya <b>Irengea</b></p>
-<p>Saya mahasiswa di Gunungsitoli</p>
-<p>Ini website pertama saya yang dibuat di GitHub Pages.</p>
-<hr>
-<h3>Tentang Saya</h3>
-<p>Saya suka belajar bikin website dan ERD 😊</p>
-<button onclick="alert('Makasih udah mampir ke website aku!')">Klik Aku!</button>
+
+<header>
+<h1>💖 Website Belajar Irengea</h1>
+<p>Semua tugas ku ada di sini! Gak perlu PowerPoint 2013 lagi!</p>
+</header>
+
+<div class="menu">
+<a href="#makalah">📄 Makalah</a>
+<a href="#ppt">📊 PPT</a>
+<a href="#video">🎬 Video AI</a>
+<a href="#kuis">📝 Kuis</a>
+<a href="#presentasi">🎤 Presentasi</a>
 </div>
+
+<div class="kotak" id="makalah">
+<h2>📄 Makalah Saya</h2>
+<p>Klik untuk buka makalahku:</p>
+<p>👉 <a href="https://drive.google.com" target="_blank">Makalah 1 - Klik Disini (Ganti link Drive kamu)</a></p>
+<p>👉 <a href="https://drive.google.com" target="_blank">Makalah 2 - Klik Disini</a></p>
+<p><i>Cara isi: Upload makalah ke Google Drive > Copy Link > Tempel ganti tulisan https://drive.google.com di atas</i></p>
+</div>
+
+<div class="kotak" id="ppt">
+<h2>📊 PPT / Materi Presentasi</h2>
+<p>👉 <a href="https://www.canva.com" target="_blank">PPT 1 - Buka di Canva</a></p>
+<p>👉 <a href="https://drive.google.com" target="_blank">PPT 2 - Download PPT</a></p>
+</div>
+
+<div class="kotak" id="video">
+<h2>🎬 Video AI Saya</h2>
+<p>Video yang aku bikin pakai AI:</p>
+<iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+<p><i>Ganti link YouTube di atas dengan link video kamu</i></p>
+</div>
+
+<div class="kotak" id="kuis">
+<h2>📝 Kuis Cepat!</h2>
+<p><b>1. Apa kepanjangan dari HTML?</b></p>
+<button class="btn" onclick="alert('SALAH! Coba lagi ya 😊')">Hyper Text Make Language</button>
+<button class="btn" onclick="alert('BETUL! Kamu Pintar! 🎉')">Hyper Text Markup Language</button>
+<br><br>
+<p><b>2. GitHub Pages dipakai untuk apa?</b></p>
+<button class="btn" onclick="alert('BETUL! 🎉')">Bikin website gratis</button>
+<button class="btn" onclick="alert('SALAH!')">Main game</button>
+</div>
+
+<div class="kotak" id="presentasi">
+<h2>🎤 Mode Presentasi - Tanpa PowerPoint!</h2>
+<p>Klik Next untuk ganti slide, kayak di PowerPoint!</p>
+<div class="slide aktif"><h1>Slide 1: Judul</h1><p>Halo! Saya Irengea</p><p>Ini presentasi saya</p></div>
+<div class="slide"><h1>Slide 2: Isi</h1><p>Ini isi materi saya...</p><p>Poin 1, Poin 2, Poin 3</p></div>
+<div class="slide"><h1>Slide 3: Penutup</h1><p>Terima Kasih! Ada pertanyaan? 💖</p></div>
+<button class="btn" onclick="ganti(-1)">⬅ Sebelumnya</button>
+<button class="btn" onclick="ganti(1)">Selanjutnya ➡</button>
+</div>
+
+<script>
+let skrg=0; let semua=document.querySelectorAll('.slide');
+function ganti(n){ semua[skrg].classList.remove('aktif'); skrg+=n; if(skrg<0) skrg=0; if(skrg>=semua.length) skrg=semua.length-1; semua[skrg].classList.add('aktif'); }
+</script>
+
 </body>
 </html>
